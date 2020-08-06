@@ -2,14 +2,15 @@ import apiUrl from '../apiConfig'
 import axios from 'axios'
 
 export const newPaddock = (userId, title) => {
+  console.log(userId, title.title)
   return axios({
     url: apiUrl + '/paddocks',
     method: 'POST',
-    headers: {
-      Authorization: 'Bearer ' + userId
-    },
     data: {
-      title: title
+      paddock: {
+        title: title.title,
+        owner: userId
+      }
     }
   })
 }

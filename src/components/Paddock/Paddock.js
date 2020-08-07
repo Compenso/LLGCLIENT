@@ -37,10 +37,10 @@ const NewPaddock = props => {
   return (
     <div className="row">
       <div className="col-sm-10 col-md-8 mx-auto mt-5">
-        <h3>Product Create</h3>
+        <h3>Paddock</h3>
         <Form onSubmit={onSubmitPaddock}>
           <Form.Group controlId="name">
-            <Form.Label>New Paddock</Form.Label>
+            <Form.Label>Whatcha gonna do?</Form.Label>
             <Form.Control
               required
               type="name"

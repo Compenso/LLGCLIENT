@@ -15,7 +15,7 @@ export const newPaddock = (userId, title) => {
   })
 }
 
-export const indexPaddock = (userId) => {
+export const allPaddocks = (userId) => {
   return axios({
     url: apiUrl + '/paddocks',
     method: 'GET',

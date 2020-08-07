@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react'
+import { withRouter } from 'react-router-dom'
 import OnePaddock from './OnePaddock'
 // bring in our api call for indexing all Paddocks.
 import { allPaddocks } from '../../api/paddock'
 
-const AllPaddocks = (props) => {
+const AllPaddocks = props => {
+  console.log(props.user.token)
   const [paddocksArray, setPaddocksArray] = useState([])
-
+  console.log(paddocksArray)
   useEffect(() => {
-    allPaddocks()
+    const token = props.user.token
+    allPaddocks(token)
       .then(res => setPaddocksArray(res.data.paddocks))
       .catch()
   }, [])
@@ -23,10 +26,10 @@ const AllPaddocks = (props) => {
     <div>
       <h2 className='paddock-header'>Paddocks</h2>
       <div style = {containerStyle} >
-        {paddocksArray.map(paddock => (
+        {paddocksArray.map(title => (
           <OnePaddock
-            key={paddock.title}
-            title={paddock.title}
+            key={title}
+            title={title}
           />
         ))}
       </div>
@@ -34,4 +37,4 @@ const AllPaddocks = (props) => {
   )
 }
 
-export default AllPaddocks
+export default withRouter(AllPaddocks)

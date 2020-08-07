@@ -15,12 +15,12 @@ export const newPaddock = (userId, title) => {
   })
 }
 
-export const allPaddocks = (userId) => {
+export const allPaddocks = (token) => {
   return axios({
     url: apiUrl + '/paddocks',
     method: 'GET',
     headers: {
-      Authorization: 'Bearer ' + userId
+      Authorization: 'Bearer ' + token
     }
   })
 }

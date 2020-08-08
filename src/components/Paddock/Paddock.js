@@ -9,7 +9,6 @@ import Button from 'react-bootstrap/Button'
 // import messages from '../AutoDismissAlert/messages'
 
 const NewPaddock = props => {
-  console.log(props.user.token)
   const [title, setTitle] = useState({
     title: ''
   })
@@ -27,7 +26,7 @@ const NewPaddock = props => {
     event.preventDefault()
     const { history } = props
     const userId = props.user._id
-    console.log(title, 'Line 29 so fine.')
+    // console.log(title, 'Line 29 so fine.')
     newPaddock(userId, title)
       .then(res => console.log(res))
       .then((res) => this)

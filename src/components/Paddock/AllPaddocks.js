@@ -28,7 +28,7 @@ const AllPaddocks = props => {
       <div style = {containerStyle} >
         {paddocksArray.map(title => (
           <OnePaddock
-            key={title}
+            key={title._id}
             title={title}
           />
         ))}

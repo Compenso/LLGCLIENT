@@ -7,7 +7,7 @@ const authenticatedOptions = (
     <Nav.Link href="#change-password">Change Password</Nav.Link>
     <Nav.Link href="#sign-out">Sign Out</Nav.Link>
     <Nav.Link href="#new-paddock">New Paddock</Nav.Link>
-    <Nav.Link href='#all-paddocks'>Paddocks</Nav.Link>
+    <Nav.Link href='#all-paddocks'>❤️Paddocks❤️</Nav.Link>
   </Fragment>
 )
 

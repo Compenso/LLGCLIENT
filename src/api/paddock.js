@@ -24,3 +24,26 @@ export const allPaddocks = (token) => {
     }
   })
 }
+
+export const patchPaddock = (padId, title, token) => {
+  console.log(padId, title, token)
+  return axios({
+    url: apiUrl + '/paddocks/' + padId,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Bearer ' + token
+    },
+    data: {
+      paddock: {
+        title: title.title
+      }
+    }
+  })
+}
+
+export const deletePaddock = (padId, token) => {
+  console.log('here in the delete api call')
+  return axios({
+    url: apiUrl + '/paddocks/' + padId
+  })
+}

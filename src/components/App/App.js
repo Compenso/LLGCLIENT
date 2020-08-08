@@ -10,6 +10,7 @@ import SignOut from '../SignOut/SignOut'
 import ChangePassword from '../ChangePassword/ChangePassword'
 import Paddock from '../Paddock/Paddock'
 import AllPaddocks from '../Paddock/AllPaddocks'
+import PatchPaddock from '../Paddock/PatchPaddock'
 
 class App extends Component {
   constructor () {
@@ -61,6 +62,9 @@ class App extends Component {
           )} />
           <AuthenticatedRoute user={user} path='/new-paddock' render={() => (
             <Paddock user={user} />
+          )} />
+          <AuthenticatedRoute user={user} path='/patch-paddock' render={(redirectProps) => (
+            <PatchPaddock user={user} redirectProps={redirectProps}/>
           )} />
         </main>
       </Fragment>

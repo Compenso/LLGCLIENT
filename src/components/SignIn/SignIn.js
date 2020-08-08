@@ -33,7 +33,7 @@ class SignIn extends Component {
         message: messages.signInSuccess,
         variant: 'success'
       }))
-      .then(() => history.push('/new-paddock'))
+      .then(() => history.push('/all-paddocks'))
       .catch(error => {
         this.setState({ email: '', password: '' })
         msgAlert({

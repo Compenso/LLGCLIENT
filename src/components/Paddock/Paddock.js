@@ -30,14 +30,14 @@ const NewPaddock = props => {
     newPaddock(userId, title)
       .then(res => console.log(res))
       .then((res) => this)
-      .then(() => history.push('/'))
+      .then(() => history.push('/all-paddocks'))
       .catch(console.error)
   }
 
   return (
     <div className="row">
       <div className="col-sm-10 col-md-8 mx-auto mt-5">
-        <h3>Paddock</h3>
+        <h3 className='wu-paddock-make'>Paddock</h3>
         <Form onSubmit={onSubmitPaddock}>
           <Form.Group controlId="name">
             <Form.Label>Whatcha gonna do?</Form.Label>

@@ -16,6 +16,7 @@ export const newPaddock = (userId, title) => {
 }
 
 export const allPaddocks = (token) => {
+  console.log('api line 19')
   return axios({
     url: apiUrl + '/paddocks',
     method: 'GET',
@@ -44,6 +45,10 @@ export const patchPaddock = (padId, title, token) => {
 export const deletePaddock = (padId, token) => {
   console.log('here in the delete api call')
   return axios({
-    url: apiUrl + '/paddocks/' + padId
+    url: apiUrl + '/paddocks/' + padId,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Bearer ' + token
+    }
   })
 }

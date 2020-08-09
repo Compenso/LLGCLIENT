@@ -25,7 +25,7 @@ const alwaysOptions = (
 )
 
 const Header = ({ user }) => (
-  <Navbar bg="primary" variant="dark" expand="md">
+  <Navbar className='wu-header' variant="light" expand="md">
     <Navbar.Brand href="#">
       Little-Life-Goals
     </Navbar.Brand>

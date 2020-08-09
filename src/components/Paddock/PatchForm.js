@@ -5,8 +5,8 @@ const PatchForm = ({ title, handleChange, handleSubmit, cancelPath }) => (
   <form onSubmit={handleSubmit}>
     <label>Paddock </label>
     <input
-      placeholder="holding space"
-      value={title}
+      placeholder="New Title"
+      value={title.title}
       name="title"
       onChange={handleChange}
     />

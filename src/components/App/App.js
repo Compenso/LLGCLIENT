@@ -11,6 +11,7 @@ import ChangePassword from '../ChangePassword/ChangePassword'
 import Paddock from '../Paddock/Paddock'
 import AllPaddocks from '../Paddock/AllPaddocks'
 import PatchPaddock from '../Paddock/PatchPaddock'
+import DeletePaddock from '../Paddock/DeletePaddock'
 
 class App extends Component {
   constructor () {
@@ -64,7 +65,10 @@ class App extends Component {
             <Paddock user={user} />
           )} />
           <AuthenticatedRoute user={user} path='/patch-paddock' render={(redirectProps) => (
-            <PatchPaddock user={user} redirectProps={redirectProps}/>
+            <PatchPaddock user={user} redirectProps={redirectProps} />
+          )} />
+          <AuthenticatedRoute user={user} path='/delete-paddock' render={(padProps) => (
+            <DeletePaddock user={user} padProps={padProps} />
           )} />
         </main>
       </Fragment>

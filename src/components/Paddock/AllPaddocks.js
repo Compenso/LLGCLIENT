@@ -5,9 +5,7 @@ import OnePaddock from './OnePaddock'
 import { allPaddocks } from '../../api/paddock'
 
 const AllPaddocks = props => {
-  console.log(props.user.token)
   const [paddocksArray, setPaddocksArray] = useState([])
-  console.log(paddocksArray)
   useEffect(() => {
     const token = props.user.token
     allPaddocks(token)
@@ -24,7 +22,7 @@ const AllPaddocks = props => {
 
   return (
     <div>
-      <h2 className='paddock-header'>Paddocks</h2>
+      <h2 className='wu-paddock-header'>Paddocks</h2>
       <div style = {containerStyle} >
         {paddocksArray.map(title => (
           <OnePaddock

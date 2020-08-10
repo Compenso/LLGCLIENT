@@ -12,9 +12,12 @@ const OnePaddock = ({ title }) => {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    border: '#d8cfd0',
+    border: '4px solid',
+    borderColor: '#ffffff',
+    borderRadius: '10px',
     height: '50vh',
-    position: 'relative'
+    position: 'relative',
+    columnReverse: 'column-reverse'
   }
 
   const patchHandler = event => {

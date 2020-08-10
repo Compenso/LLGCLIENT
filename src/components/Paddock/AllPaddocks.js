@@ -16,8 +16,11 @@ const AllPaddocks = props => {
   // basic styling for Index values
   const containerStyle = {
     display: 'flex',
+    flexDirection: 'column',
     flexWrap: 'Wrap',
-    padding: '30px'
+    padding: '30px',
+    borderSize: '30px',
+    border: '1px solid'
   }
 
   return (

@@ -8,10 +8,12 @@ import SignUp from '../SignUp/SignUp'
 import SignIn from '../SignIn/SignIn'
 import SignOut from '../SignOut/SignOut'
 import ChangePassword from '../ChangePassword/ChangePassword'
+
 import Paddock from '../Paddock/Paddock'
 import AllPaddocks from '../Paddock/AllPaddocks'
 import PatchPaddock from '../Paddock/PatchPaddock'
 import DeletePaddock from '../Paddock/DeletePaddock'
+import NewSteps from '../Steps/NewSteps'
 
 class App extends Component {
   constructor () {
@@ -69,6 +71,9 @@ class App extends Component {
           )} />
           <AuthenticatedRoute user={user} path='/delete-paddock' render={(padProps) => (
             <DeletePaddock user={user} padProps={padProps} />
+          )} />
+          <AuthenticatedRoute user={user} path='/new-system' render={(padsysProps) => (
+            <NewSteps user={user} padsysProps={padsysProps} />
           )} />
         </main>
       </Fragment>

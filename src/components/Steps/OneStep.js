@@ -4,10 +4,9 @@ import { Redirect } from 'react-router-dom'
 import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
 
-const OnePaddock = ({ title }) => {
+const OneStep = ({ title }) => {
   const [patch, setPatch] = useState(false)
   const [deleted, setDeleted] = useState(false)
-  const [system, setSystem] = useState(false)
 
   const containerStyle = {
     display: 'flex',
@@ -33,34 +32,21 @@ const OnePaddock = ({ title }) => {
     setDeleted(true)
   }
 
-  const systemHandler = event => {
-    event.preventDefault()
-    console.log('click')
-    setSystem(true)
-  }
-
   return (
     <Col md={4} style={containerStyle}>
       <h2>{title.title}</h2>
       <div>
         <Button onClick={patchHandler} size='sm' variant="dark">Patch</Button>
         <Button onClick={deleteHandler} size='sm' variant="light">Delete</Button>
-        <Button onClick={systemHandler} size='sm' variant="light">System</Button>
         {patch && <Redirect to={{
-          pathname: '/patch-paddock',
+          pathname: '/patch-system',
           state: {
             title: title.title,
             id: title._id
           }
         }} />}
         {deleted && <Redirect to={{
-          pathname: '/delete-paddock',
-          state: {
-            id: title._id
-          }
-        }} />}
-        {system && <Redirect to={{
-          pathname: '/new-system',
+          pathname: '/delete-system',
           state: {
             id: title._id
           }
@@ -70,4 +56,4 @@ const OnePaddock = ({ title }) => {
   )
 }
 
-export default OnePaddock
+export default OneStep

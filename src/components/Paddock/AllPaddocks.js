@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import { withRouter } from 'react-router-dom'
+
 import OnePaddock from './OnePaddock'
-import OneStep from './../Steps/OneStep'
 // bring in our api call for indexing all Paddocks.
 import { allPaddocks } from '../../api/paddock'
-import { allSteps } from '../../api/system'
+// import { allSteps } from '../../api/system'
 
 const AllPaddocks = props => {
   const [paddocksArray, setPaddocksArray] = useState([])
-  const [stepsArray, setStepsArray] = useState([])
+  const [showSystem, setShowSystem] = useState([])
 
   useEffect(() => {
     const token = props.user.token
@@ -17,11 +17,11 @@ const AllPaddocks = props => {
       .catch()
   }, [])
 
-  useEffect(() => {
-    const padId = props.user.id
-    allSteps(padId)
-      .then(res => setStepsArray(res.data.paddocks.systems))
-  })
+  // useEffect(() => {
+  //   const padId = props.user.id
+  //   allSteps(padId)
+  //     .then(res => setStepsArray(res.data.paddocks.systems.title))
+  // }, [])
 
   // basic styling for Index values
   const containerStyle = {
@@ -37,21 +37,22 @@ const AllPaddocks = props => {
     <div>
       <h2 className='wu-paddock-header'>Paddocks</h2>
       <div style = {containerStyle} >
-        {paddocksArray.map(title => (
-          <OnePaddock
-            key={title._id}
-            title={title}
-          />
-        ))}
-      </div>
-      <h2 className='wu-paddock-header'>Parts</h2>
-      <div style = {containerStyle} >
-        {stepsArray.map(title => (
-          <OneStep
-            key={title._id}
-            title={title}
-          />
-        ))}
+        <div>
+          {paddocksArray.map(title => (
+            <OnePaddock
+              key={title._id}
+              title={title}
+              showSystem={showSystem}
+              setShowSystem={setShowSystem}
+            />
+          ))}
+        </div>
+        <div>
+          {showSystem.map(title => (
+            <h2 key={title._id}>{title.title}</h2>
+          )
+          )}
+        </div>
       </div>
     </div>
   )

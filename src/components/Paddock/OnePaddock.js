@@ -4,10 +4,14 @@ import { Redirect } from 'react-router-dom'
 import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
 
-const OnePaddock = ({ title }) => {
+import { allSteps } from './../../api/system'
+
+const OnePaddock = (props) => {
+  console.log(props.title._id, 'soup')
   const [patch, setPatch] = useState(false)
   const [deleted, setDeleted] = useState(false)
   const [system, setSystem] = useState(false)
+  const [showSystem, setShowSystem] = useState(false)
 
   const containerStyle = {
     display: 'flex',
@@ -39,32 +43,53 @@ const OnePaddock = ({ title }) => {
     setSystem(true)
   }
 
+  const showSystemHandler = event => {
+    event.preventDefault()
+    console.log('clickershow')
+    setShowSystem(!showSystem)
+    console.log(props, 'show system handler One Paddock')
+    const padId = props.title._id
+    if (!props.title.systems[0]) {
+      props.setShowSystem([{ _id: 9999990999, title: 'Nothing Here' }])
+      return
+    }
+    const sysId = props.title.systems[0]._id
+    console.log(sysId)
+    allSteps(padId, sysId)
+      .then((res) => props.setShowSystem(res.data.systems))
+      .catch(() => console.log('all steps failed.'))
+  }
+
   return (
     <Col md={4} style={containerStyle}>
-      <h2>{title.title}</h2>
+      <h2>{props.title.title}</h2>
       <div>
         <Button onClick={patchHandler} size='sm' variant="dark">Patch</Button>
         <Button onClick={deleteHandler} size='sm' variant="light">Delete</Button>
-        <Button onClick={systemHandler} size='sm' variant="light">System</Button>
+        <Button onClick={systemHandler} size='sm' variant="light">Add</Button>
+        <Button onClick={showSystemHandler} size='sm' variant="dark">Show</Button>
         {patch && <Redirect to={{
           pathname: '/patch-paddock',
           state: {
-            title: title.title,
-            id: title._id
+            title: props.title.title,
+            id: props.title._id
           }
         }} />}
         {deleted && <Redirect to={{
           pathname: '/delete-paddock',
           state: {
-            id: title._id
+            id: props.title._id
           }
         }} />}
         {system && <Redirect to={{
           pathname: '/new-system',
           state: {
-            id: title._id
+            id: props.title._id
           }
         }} />}
+        <div className='show-steps'>
+          {showSystem && <div>Steps</div>}
+        </div>
       </div>
     </Col>
   )

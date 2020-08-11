@@ -27,7 +27,7 @@ const Steps = props => {
     const padId = props.padsysProps.location.state.id
 
     newSystem(padId, title)
-      .then(res => console.log(res))
+      .then(res => console.log(res, 'here at new system.'))
       .then((res) => this)
       .then(() => history.push('/all-paddocks'))
       .catch(console.error)

@@ -16,10 +16,11 @@ export const newSystem = (padId, title) => {
   })
 }
 
-export const allSteps = (padId) => {
-  console.log('api line 19')
+export const allSteps = (padId, sysId) => {
+  console.log('All steps request')
+  console.log('padId', padId, sysId)
   return axios({
-    url: apiUrl + '/paddocks' + padId,
+    url: apiUrl + '/paddocks/' + padId + '/systems/' + sysId,
     method: 'GET'
   })
 }

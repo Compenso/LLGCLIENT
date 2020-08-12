@@ -50,7 +50,7 @@ const OnePaddock = (props) => {
     console.log(props, 'show system handler One Paddock')
     const padId = props.title._id
     if (!props.title.systems[0]) {
-      props.setShowSystem([{ _id: 9999990999, title: 'Nothing Here' }])
+      props.setShowSystem([{ _id: 7, title: 'Nothing Here' }])
       return
     }
     const sysId = props.title.systems[0]._id

@@ -37,7 +37,9 @@ class App extends Component {
     const { msgAlerts, user } = this.state
 
     return (
-      <Fragment>
+      <Fragment style={{
+        backgroundImage: 'url("./../images/Mud.jpg")', backgroundRepeat: 'no-repeat', width: '250px', height: '250px', color: 'white'
+      }}>
         <Header user={user} />
         {msgAlerts.map((msgAlert, index) => (
           <AutoDismissAlert

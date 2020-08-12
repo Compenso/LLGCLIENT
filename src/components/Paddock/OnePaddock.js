@@ -15,12 +15,13 @@ const OnePaddock = (props) => {
 
   const containerStyle = {
     display: 'flex',
+    flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
     border: '4px solid',
     borderColor: '#ffffff',
     borderRadius: '10px',
-    height: '50vh',
+    width: '50vw',
     position: 'relative',
     columnReverse: 'column-reverse'
   }
@@ -88,7 +89,7 @@ const OnePaddock = (props) => {
           }
         }} />}
         <div className='show-steps'>
-          {showSystem && <div>Steps</div>}
+          {showSystem && <div>☂</div>}
         </div>
       </div>
     </Col>

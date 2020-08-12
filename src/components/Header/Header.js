@@ -27,7 +27,7 @@ const alwaysOptions = (
 const Header = ({ user }) => (
   <Navbar className='wu-header' variant="light" expand="md">
     <Navbar.Brand href="#">
-      Little-Life-Goals
+      ☂Little-Life-Goals☂
     </Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">

@@ -26,12 +26,35 @@ const AllPaddocks = props => {
   // basic styling for Index values
   const containerStyle = {
     display: 'flex',
-    flexDirection: 'column',
+    flexDirection: 'row',
     flexWrap: 'Wrap',
     padding: '30px',
     borderSize: '30px',
-    border: '1px solid'
+    border: '1px solid',
+    justifyContent: 'right'
   }
+  const containerStyle2 = {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'left',
+    border: '4px solid',
+    borderColor: '#ffffff',
+    borderRadius: '10px',
+    height: '50vh',
+    position: 'relative',
+    columnReverse: 'column-reverse',
+    backgroundColor: '#d8dfd3'
+  }
+
+  // const pushTogether = {
+  //   display: 'flex',
+  //   flexDirection: 'row',
+  //   flexWrap: 'Wrap',
+  //   padding: '30px',
+  //   borderSize: '30px',
+  //   border: '1px solid'
+  // }
 
   return (
     <div>
@@ -47,9 +70,9 @@ const AllPaddocks = props => {
             />
           ))}
         </div>
-        <div>
+        <div style={containerStyle2}>
           {showSystem.map(title => (
-            <h2 key={title._id}>{title.title}</h2>
+            <h2 styel={containerStyle2} key={title._id}>{title.title}</h2>
           )
           )}
         </div>

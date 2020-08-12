@@ -1,1 +1,27 @@
 @import '~bootstrap/scss/bootstrap';
+
+.col-md-4 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  background-color: #d8cfd0;
+  color:#413f3d;
+  padding: 10px;
+}
+ .wu-paddock-make, .wu-paddock-header {
+   color: #008000;
+   text-align: center;
+ }
+ .wu-header {
+   background-color: #d8cfd0;
+ }
+
+ .wu-container-all {
+   display: flex;
+ }
+
+body {
+  background-image: url('./components/images/MudLight.jpg');
+  background-size: cover;
+}

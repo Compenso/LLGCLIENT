@@ -6,6 +6,8 @@ const authenticatedOptions = (
   <Fragment>
     <Nav.Link href="#change-password">Change Password</Nav.Link>
     <Nav.Link href="#sign-out">Sign Out</Nav.Link>
+    <Nav.Link href="#new-paddock">New Paddock</Nav.Link>
+    <Nav.Link href='#all-paddocks'>❤️Paddocks❤️</Nav.Link>
   </Fragment>
 )
 
@@ -23,7 +25,7 @@ const alwaysOptions = (
 )
 
 const Header = ({ user }) => (
-  <Navbar bg="primary" variant="dark" expand="md">
+  <Navbar className='wu-header' variant="light" expand="md">
     <Navbar.Brand href="#">
       Little-Life-Goals
     </Navbar.Brand>

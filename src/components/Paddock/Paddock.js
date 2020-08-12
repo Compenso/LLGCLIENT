@@ -1,74 +1,64 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import { withRouter } from 'react-router-dom'
-
+// bring in our api call for creating a new Paddock.
+import { newPaddock } from '../../api/paddock'
+// Import our form and button from bootstrap.
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
+// bring in a unique message for when a new paddock is created.
+// import messages from '../AutoDismissAlert/messages'
 
-import { newPaddock } from '../../api/paddock'
-import messages from '../AutoDismissAlert/messages'
+const NewPaddock = props => {
+  const [title, setTitle] = useState({
+    title: ''
+  })
 
-class Paddock extends Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      title: ''
-    }
+  const handleChange = event => {
+    event.persist()
+    setTitle(prevPaddock => {
+      const updatedPaddock = { [event.target.name]: event.target.value }
+      const newPaddock = Object.assign({}, prevPaddock, updatedPaddock)
+      return newPaddock
+    })
   }
 
-  handleChange = (event) =>
-    this.setState({
-      [event.target.name]: event.target.value
-    })
+  const onSubmitPaddock = event => {
+    event.preventDefault()
+    const { history } = props
+    const userId = props.user._id
+    // console.log(title, 'Line 29 so fine.')
+    newPaddock(userId, title)
+      .then(res => console.log(res))
+      .then((res) => this)
+      .then(() => history.push('/all-paddocks'))
+      .catch(console.error)
+  }
 
-    onNewPaddock = event => {
-      event.preventDefault()
-
-      const { msgAlert, history, user } = this.props
-
-      newPaddock(this.state, user)
-        .then(() => msgAlert({
-          heading: 'New Paddock!',
-          message: messages.createdNewPaddock,
-          variant: 'success'
-        }))
-        .then(() => history.push('/'))
-        .catch(() => msgAlert({
-          heading: 'Sorry...',
-          message: messages.signInFailure,
-          variant: 'danger'
-        }))
-    }
-
-    render () {
-      const { title } = this.state
-
-      return (
-        <div className="row">
-          <div className="col-sm-10 col-md-8 mx-auto mt-5">
-            <h3>New Paddock</h3>
-            <Form onSubmit={this.onNewPaddock}>
-              <Form.Group controlId="newPaddock">
-                <Form.Label>New Paddock</Form.Label>
-                <Form.Control
-                  required
-                  name="newPaddock"
-                  value={title}
-                  type="paddock"
-                  placeholder="New Paddock"
-                  onChange={this.handleChange}
-                />
-              </Form.Group>
-              <Button
-                variant="primary"
-                type="submit"
-              >
-                Submit
-              </Button>
-            </Form>
-          </div>
-        </div>
-      )
-    }
+  return (
+    <div className="row">
+      <div className="col-sm-10 col-md-8 mx-auto mt-5">
+        <h3 className='wu-paddock-make'>Paddock</h3>
+        <Form onSubmit={onSubmitPaddock}>
+          <Form.Group controlId="name">
+            <Form.Label>Whatcha gonna do?</Form.Label>
+            <Form.Control
+              required
+              type="name"
+              name="title"
+              value={title.name}
+              placeholder="Paddock Name"
+              onChange={handleChange}
+            />
+          </Form.Group>
+          <Button
+            variant="primary"
+            type="submit">
+            Submit
+          </Button>
+        </Form>
+      </div>
+    </div>
+  )
 }
 
-export default withRouter(Paddock)
+export default withRouter(NewPaddock)

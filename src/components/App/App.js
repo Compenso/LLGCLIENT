@@ -8,7 +8,12 @@ import SignUp from '../SignUp/SignUp'
 import SignIn from '../SignIn/SignIn'
 import SignOut from '../SignOut/SignOut'
 import ChangePassword from '../ChangePassword/ChangePassword'
+
 import Paddock from '../Paddock/Paddock'
+import AllPaddocks from '../Paddock/AllPaddocks'
+import PatchPaddock from '../Paddock/PatchPaddock'
+import DeletePaddock from '../Paddock/DeletePaddock'
+import NewSteps from '../Steps/NewSteps'
 
 class App extends Component {
   constructor () {
@@ -32,7 +37,9 @@ class App extends Component {
     const { msgAlerts, user } = this.state
 
     return (
-      <Fragment>
+      <Fragment style={{
+        backgroundImage: 'url("./../images/Mud.jpg")', backgroundRepeat: 'no-repeat', width: '250px', height: '250px', color: 'white'
+      }}>
         <Header user={user} />
         {msgAlerts.map((msgAlert, index) => (
           <AutoDismissAlert
@@ -55,8 +62,20 @@ class App extends Component {
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword msgAlert={this.msgAlert} user={user} />
           )} />
-          <AuthenticatedRoute user={user} path='/paddock' render={() => (
-            <Paddock />
+          <AuthenticatedRoute user={user} path='/all-paddocks' render={() => (
+            <AllPaddocks user={user} />
+          )} />
+          <AuthenticatedRoute user={user} path='/new-paddock' render={() => (
+            <Paddock user={user} />
+          )} />
+          <AuthenticatedRoute user={user} path='/patch-paddock' render={(redirectProps) => (
+            <PatchPaddock user={user} redirectProps={redirectProps} />
+          )} />
+          <AuthenticatedRoute user={user} path='/delete-paddock' render={(padProps) => (
+            <DeletePaddock user={user} padProps={padProps} />
+          )} />
+          <AuthenticatedRoute user={user} path='/new-system' render={(padsysProps) => (
+            <NewSteps user={user} padsysProps={padsysProps} />
           )} />
         </main>
       </Fragment>

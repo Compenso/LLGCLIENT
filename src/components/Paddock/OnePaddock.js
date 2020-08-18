@@ -15,13 +15,12 @@ const OnePaddock = (props) => {
 
   const containerStyle = {
     display: 'flex',
-    flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    border: '4px solid',
+    border: '1px solid',
     borderColor: '#ffffff',
-    borderRadius: '10px',
     width: '50vw',
+    borderRadius: '10px',
     position: 'relative',
     columnReverse: 'column-reverse'
   }

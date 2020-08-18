@@ -27,11 +27,10 @@ const AllPaddocks = props => {
   const containerStyle = {
     display: 'flex',
     flexDirection: 'row',
-    flexWrap: 'Wrap',
-    padding: '30px',
-    borderSize: '30px',
+    flexWrap: 'wrap',
+    borderSize: '10px',
     border: '1px solid',
-    justifyContent: 'right'
+    justifyContent: 'center'
   }
   const containerStyle2 = {
     display: 'flex',

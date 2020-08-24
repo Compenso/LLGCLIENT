@@ -2,13 +2,58 @@
 
 .col-md-4 {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  width: 60vw;
   text-align: center;
   background-color: #d8dfd3;
   color:#413f3d;
   padding: 10px;
+  font-family: 'Bellota', cursive;
+  border: 10px;
 }
+
+.columnStyle {
+  display: flex;
+  flex-direction: column;
+  flex: nowrap;
+  border: 10px;
+  border: 2px solid;
+  width: 60vw;
+  border-radius: 5px;
+}
+
+.containerStyleDiv {
+  display: flex;
+  flex-direction: column;
+  flex: nowrap;
+  border: 10px;
+  border: 1px solid;
+  width: justify;
+  border-radius: 5px;
+}
+
+.containerStyle {
+  display: flex;
+  flex-direction: row;
+  flex: nowrap;
+  border: 10px;
+  border: 2px solid;
+  width: 50vw;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+.containerStyle2 {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid;
+  border-color: #ffffff;
+  border-radius: 5px;
+  border: 1px solid;
+  width: 20vw;
+  background-color: #d8dfd3;
+  font-size: 16px;
+}
+
  .wu-paddock-make, .wu-paddock-header {
    color: #ffffff;
    text-align: center;
@@ -24,4 +69,7 @@
 body {
   background-image: url('./components/images/MudLight.jpg');
   background-size: cover;
+  font-family: 'Bellot', regular;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Bellota:wght@300&display=swap');

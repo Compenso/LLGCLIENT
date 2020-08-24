@@ -13,18 +13,6 @@ const OnePaddock = (props) => {
   const [system, setSystem] = useState(false)
   const [showSystem, setShowSystem] = useState(false)
 
-  const containerStyle = {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    border: '1px solid',
-    borderColor: '#ffffff',
-    width: '50vw',
-    borderRadius: '10px',
-    position: 'relative',
-    columnReverse: 'column-reverse'
-  }
-
   const patchHandler = event => {
     event.preventDefault()
     console.log('click')
@@ -45,23 +33,20 @@ const OnePaddock = (props) => {
 
   const showSystemHandler = event => {
     event.preventDefault()
-    console.log('clickershow')
     setShowSystem(!showSystem)
-    console.log(props, 'show system handler One Paddock')
     const padId = props.title._id
     if (!props.title.systems[0]) {
       props.setShowSystem([{ _id: 7, title: 'Nothing Here' }])
       return
     }
     const sysId = props.title.systems[0]._id
-    console.log(sysId)
     allSteps(padId, sysId)
       .then((res) => props.setShowSystem(res.data.systems))
       .catch(() => console.log('all steps failed.'))
   }
 
   return (
-    <Col md={4} style={containerStyle}>
+    <Col md={4} className='columnStyle'>
       <h2>{props.title.title}</h2>
       <div>
         <Button onClick={patchHandler} size='sm' variant="dark">Patch</Button>

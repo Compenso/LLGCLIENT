@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import { withRouter } from 'react-router-dom'
+import { withRouter, Redirect } from 'react-router-dom'
+import Button from 'react-bootstrap/Button'
 
 import OnePaddock from './OnePaddock'
 // bring in our api call for indexing all Paddocks.
@@ -9,6 +10,7 @@ import { allPaddocks } from '../../api/paddock'
 const AllPaddocks = props => {
   const [paddocksArray, setPaddocksArray] = useState([])
   const [showSystem, setShowSystem] = useState([])
+  const [patch, setPatch] = useState(false)
 
   useEffect(() => {
     const token = props.user.token
@@ -17,11 +19,12 @@ const AllPaddocks = props => {
       .catch()
   }, [])
 
-  // useEffect(() => {
-  //   const padId = props.user.id
-  //   allSteps(padId)
-  //     .then(res => setStepsArray(res.data.paddocks.systems.title))
-  // }, [])
+  const patchHandler = event => {
+    event.preventDefault()
+    console.log('clunk')
+    console.log(props)
+    setPatch(true)
+  }
 
   return (
     <div className='containerStyleDiv'>
@@ -39,7 +42,16 @@ const AllPaddocks = props => {
         </div>
         <div>
           {showSystem.map(title => (
-            <h2 className='containerStyle2' key={title._id}>{title.title}</h2>
+            <h2 className='containerStyle2' key={title._id}>{title.title}
+              <Button onClick={patchHandler} className='btn' size='sm' variant='dark'>Patch</Button>
+              {patch && <Redirect to={{
+                pathname: '/patch-system',
+                state: {
+                  id: props
+                }
+              }} />}
+              <Button className='btn' size='sm' variant='light'>Delete</Button>
+            </h2>
           )
           )}
         </div>

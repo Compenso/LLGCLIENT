@@ -17,7 +17,7 @@
   flex: nowrap;
   border: 10px;
   border: 2px solid;
-  width: 60vw;
+  width: 600px;
   border-radius: 5px;
 }
 
@@ -27,7 +27,6 @@
   flex: nowrap;
   border: 10px;
   border: 1px solid;
-  width: justify;
   border-radius: 5px;
 }
 
@@ -37,21 +36,25 @@
   flex: nowrap;
   border: 10px;
   border: 2px solid;
-  width: 50vw;
+  width: auto;
   font-size: 16px;
   border-radius: 5px;
 }
 
 .containerStyle2 {
   display: flex;
-  flex-direction: column;
+  flex-direction: Column;
   border: 1px solid;
   border-color: #ffffff;
-  border-radius: 5px;
+  border-radius: 3px;
   border: 1px solid;
-  width: 20vw;
+  width: auto;
   background-color: #d8dfd3;
   font-size: 16px;
+}
+
+.btn {
+  width: 60px;
 }
 
  .wu-paddock-make, .wu-paddock-header {

@@ -27,7 +27,7 @@ const OnePaddock = (props) => {
 
   const systemHandler = event => {
     event.preventDefault()
-    console.log('click')
+    console.log('Blump sys handler')
     setSystem(true)
   }
 

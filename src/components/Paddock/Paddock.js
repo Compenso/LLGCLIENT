@@ -3,10 +3,8 @@ import { withRouter } from 'react-router-dom'
 // bring in our api call for creating a new Paddock.
 import { newPaddock } from '../../api/paddock'
 // Import our form and button from bootstrap.
-import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
-// bring in a unique message for when a new paddock is created.
-// import messages from '../AutoDismissAlert/messages'
+
+import NewPaddockForm from './NewPaddockForm'
 
 const NewPaddock = props => {
   const [title, setTitle] = useState({
@@ -26,7 +24,7 @@ const NewPaddock = props => {
     event.preventDefault()
     const { history } = props
     const userId = props.user._id
-    // console.log(title, 'Line 29 so fine.')
+    console.log('log snats', props)
     newPaddock(userId, title)
       .then(res => console.log(res))
       .then((res) => this)
@@ -36,27 +34,11 @@ const NewPaddock = props => {
 
   return (
     <div className="row">
-      <div className="col-sm-10 col-md-8 mx-auto mt-5">
-        <h3 className='wu-paddock-make'>Paddock</h3>
-        <Form onSubmit={onSubmitPaddock}>
-          <Form.Group controlId="name">
-            <Form.Label>Whatcha gonna do?</Form.Label>
-            <Form.Control
-              required
-              type="name"
-              name="title"
-              value={title.name}
-              placeholder="Paddock Name"
-              onChange={handleChange}
-            />
-          </Form.Group>
-          <Button
-            variant="primary"
-            type="submit">
-            Submit
-          </Button>
-        </Form>
-      </div>
+      <NewPaddockForm
+        onSubmitPaddock={onSubmitPaddock}
+        handleChange={handleChange}
+        cancelPath={'/all-paddocks'}
+      />
     </div>
   )
 }

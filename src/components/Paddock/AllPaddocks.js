@@ -22,7 +22,7 @@ const AllPaddocks = props => {
   const patchHandler = event => {
     event.preventDefault()
     console.log('clunk')
-    console.log(props)
+    console.log(props.title)
     setPatch(true)
   }
 
@@ -45,10 +45,7 @@ const AllPaddocks = props => {
             <h2 className='containerStyle2' key={title._id}>{title.title}
               <Button onClick={patchHandler} className='btn' size='sm' variant='dark'>Patch</Button>
               {patch && <Redirect to={{
-                pathname: '/patch-system',
-                state: {
-                  id: props
-                }
+                pathname: '/patch-system'
               }} />}
               <Button className='btn' size='sm' variant='light'>Delete</Button>
             </h2>

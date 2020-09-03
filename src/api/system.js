@@ -25,17 +25,16 @@ export const allSteps = (padId, sysId) => {
   })
 }
 
-export const patchSystem = (padId, title, token) => {
-  console.log(padId, title, token)
+export const patchSystem = (padId, title, sysId) => {
+  console.log(padId, title, sysId)
   return axios({
-    url: apiUrl + '/paddocks/' + padId,
+    url: apiUrl + '/paddocks/' + padId + '/systems/' + sysId,
     method: 'PATCH',
-    headers: {
-      Authorization: 'Bearer ' + token
-    },
     data: {
       paddock: {
-        title: title.title
+        system: {
+          title: title
+        }
       }
     }
   })

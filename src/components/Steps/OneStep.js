@@ -8,18 +8,6 @@ const OneStep = props => {
   const [patch, setPatch] = useState(false)
   const [deleted, setDeleted] = useState(false)
 
-  const containerStyle = {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    border: '4px solid',
-    borderColor: '#ffffff',
-    borderRadius: '10px',
-    height: '50vh',
-    position: 'relative',
-    columnReverse: 'column-reverse'
-  }
-
   const patchHandler = event => {
     event.preventDefault()
     console.log('click')
@@ -33,23 +21,16 @@ const OneStep = props => {
   }
 
   return (
-    <Col md={4} style={containerStyle}>
+    <Col md={4} className='columStyle'>
       <h2>{props.title.title}</h2>
       <div>
         <Button onClick={patchHandler} size='sm' variant="dark">Patch</Button>
         <Button onClick={deleteHandler} size='sm' variant="light">Delete</Button>
         {patch && <Redirect to={{
-          pathname: '/patch-system',
-          state: {
-            title: props.title.title,
-            id: props.title._id
-          }
+          pathname: '/patch-step'
         }} />}
         {deleted && <Redirect to={{
-          pathname: '/delete-system',
-          state: {
-            id: props.title._id
-          }
+          pathname: '/delete-step'
         }} />}
       </div>
     </Col>

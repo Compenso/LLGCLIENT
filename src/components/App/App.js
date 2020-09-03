@@ -14,7 +14,7 @@ import AllPaddocks from '../Paddock/AllPaddocks'
 import PatchPaddock from '../Paddock/PatchPaddock'
 import DeletePaddock from '../Paddock/DeletePaddock'
 
-import PatchSystem from '../Steps/PatchSystem'
+import PatchStep from '../Steps/PatchStep'
 import NewSteps from '../Steps/NewSteps'
 
 class App extends Component {
@@ -74,11 +74,11 @@ class App extends Component {
           <AuthenticatedRoute user={user} path='/delete-paddock' render={(padProps) => (
             <DeletePaddock user={user} padProps={padProps} />
           )} />
-          <AuthenticatedRoute user={user} path='/new-system' render={(padsysProps) => (
+          <AuthenticatedRoute user={user} path='/new-step' render={(padsysProps) => (
             <NewSteps user={user} padsysProps={padsysProps} />
           )} />
-          <AuthenticatedRoute user={user} path='/patch-system' render={(redirectProps) => (
-            <PatchSystem user={user} redirectProps={redirectProps} />
+          <AuthenticatedRoute user={user} path='/patch-step' render={(redirectProps) => (
+            <PatchStep user={user} redirectProps={redirectProps} />
           )} />
         </main>
       </Fragment>

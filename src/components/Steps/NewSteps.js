@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom'
 
 import NewStepForm from './NewStepForm'
 
-import { newSystem } from '../../api/system'
+import { newStep } from '../../api/system'
 
 const Steps = props => {
   const [title, setTitle] = useState({
@@ -25,7 +25,7 @@ const Steps = props => {
     console.log(props, '26')
     const padId = props.padsysProps.location.state.id
 
-    newSystem(padId, title)
+    newStep(padId, title)
       .then(res => console.log(res, 'here at new system.'))
       .then((res) => this)
       .then(() => history.push('/all-paddocks'))

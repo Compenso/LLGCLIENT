@@ -1,11 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const PatchForm = ({ title, handleChange, handleSubmit, cancelPath }) => (
+const PatchStepForm = ({ title, handleChange, handleSubmit, cancelPath }) => (
   <form onSubmit={handleSubmit}>
-    <label>Paddock </label>
+    <label>Step </label>
     <input
-      placeholder="New Title"
+      placeholder="New Step Title"
       value={title.title}
       name="title"
       onChange={handleChange}
@@ -18,4 +18,4 @@ const PatchForm = ({ title, handleChange, handleSubmit, cancelPath }) => (
   </form>
 )
 
-export default PatchForm
+export default PatchStepForm

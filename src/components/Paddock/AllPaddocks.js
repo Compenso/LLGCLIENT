@@ -3,13 +3,14 @@ import { withRouter, Redirect } from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
 
 import OnePaddock from './OnePaddock'
+import OneStep from './../Steps/OneStep'
 // bring in our api call for indexing all Paddocks.
 import { allPaddocks } from '../../api/paddock'
 // import { allSteps } from '../../api/system'
 
 const AllPaddocks = props => {
   const [paddocksArray, setPaddocksArray] = useState([])
-  const [showSystem, setShowSystem] = useState([])
+  const [showStep, setShowStep] = useState([])
   const [patch, setPatch] = useState(false)
 
   useEffect(() => {
@@ -35,17 +36,25 @@ const AllPaddocks = props => {
             <OnePaddock
               key={title._id}
               title={title}
-              showSystem={showSystem}
-              setShowSystem={setShowSystem}
+              showStep={showStep}
+              setShowStep={setShowStep}
+            />
+          ))}
+        </div>
+        <div className='containerStyleDiv'>
+          {showStep.map(title => (
+            <OneStep
+              key={title._id}
+              title={title}
             />
           ))}
         </div>
         <div>
-          {showSystem.map(title => (
+          {showStep.map(title => (
             <h2 className='containerStyle2' key={title._id}>{title.title}
               <Button onClick={patchHandler} className='btn' size='sm' variant='dark'>Patch</Button>
               {patch && <Redirect to={{
-                pathname: '/patch-system'
+                pathname: '/patch-step'
               }} />}
               <Button className='btn' size='sm' variant='light'>Delete</Button>
             </h2>

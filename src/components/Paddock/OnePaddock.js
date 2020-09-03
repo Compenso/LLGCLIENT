@@ -10,8 +10,8 @@ const OnePaddock = (props) => {
   console.log(props.title._id, 'soup')
   const [patch, setPatch] = useState(false)
   const [deleted, setDeleted] = useState(false)
-  const [system, setSystem] = useState(false)
-  const [showSystem, setShowSystem] = useState(false)
+  const [step, setSteps] = useState(false)
+  const [showSteps, setShowSteps] = useState(false)
 
   const patchHandler = event => {
     event.preventDefault()
@@ -25,23 +25,23 @@ const OnePaddock = (props) => {
     setDeleted(true)
   }
 
-  const systemHandler = event => {
+  const stepHandler = event => {
     event.preventDefault()
     console.log('Blump sys handler')
-    setSystem(true)
+    setSteps(true)
   }
 
-  const showSystemHandler = event => {
+  const showStepsHandler = event => {
     event.preventDefault()
-    setShowSystem(!showSystem)
+    setShowSteps(!showSteps)
     const padId = props.title._id
     if (!props.title.systems[0]) {
-      props.setShowSystem([{ _id: 7, title: 'Nothing Here' }])
+      props.setShowSteps([{ _id: 7, title: 'Nothing Here' }])
       return
     }
     const sysId = props.title.systems[0]._id
     allSteps(padId, sysId)
-      .then((res) => props.setShowSystem(res.data.systems))
+      .then((res) => props.setShowSteps(res.data.systems))
       .catch(() => console.log('all steps failed.'))
   }
 
@@ -51,8 +51,8 @@ const OnePaddock = (props) => {
       <div>
         <Button onClick={patchHandler} size='sm' variant="dark">Patch</Button>
         <Button onClick={deleteHandler} size='sm' variant="light">Delete</Button>
-        <Button onClick={systemHandler} size='sm' variant="light">Add</Button>
-        <Button onClick={showSystemHandler} size='sm' variant="dark">Show</Button>
+        <Button onClick={stepHandler} size='sm' variant="light">Add</Button>
+        <Button onClick={showStepsHandler} size='sm' variant="dark">Show</Button>
         {patch && <Redirect to={{
           pathname: '/patch-paddock',
           state: {
@@ -66,14 +66,14 @@ const OnePaddock = (props) => {
             id: props.title._id
           }
         }} />}
-        {system && <Redirect to={{
-          pathname: '/new-system',
+        {step && <Redirect to={{
+          pathname: '/new-step',
           state: {
             id: props.title._id
           }
         }} />}
         <div className='show-steps'>
-          {showSystem && <div>☂</div>}
+          {showSteps && <div>☂</div>}
         </div>
       </div>
     </Col>

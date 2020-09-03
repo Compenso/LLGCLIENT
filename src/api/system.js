@@ -1,7 +1,7 @@
 import apiUrl from '../apiConfig'
 import axios from 'axios'
 
-export const newSystem = (padId, title) => {
+export const newStep = (padId, title) => {
   console.log(padId, title.title)
   return axios({
     url: apiUrl + '/paddocks/' + padId,
@@ -25,7 +25,7 @@ export const allSteps = (padId, sysId) => {
   })
 }
 
-export const patchSystem = (padId, title, sysId) => {
+export const patchStep = (padId, title, sysId) => {
   console.log(padId, title, sysId)
   return axios({
     url: apiUrl + '/paddocks/' + padId + '/systems/' + sysId,
@@ -40,7 +40,7 @@ export const patchSystem = (padId, title, sysId) => {
   })
 }
 
-export const deleteSystem = (padId, token) => {
+export const deleteStep = (padId, token) => {
   console.log('here in the delete api call')
   return axios({
     url: apiUrl + '/paddocks/' + padId,

@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import { Redirect } from 'react-router-dom'
 
 import { patchPaddock } from '../../api/paddock'
-import PatchSysForm from './PatchSysForm'
+import PatchStepForm from './PatchStepForm'
 
-const PatchSystem = props => {
+const PatchStep = props => {
   const [patch, setPatch] = useState(false)
   const [title, setTitle] = useState({
     title: ''
@@ -32,7 +32,7 @@ const PatchSystem = props => {
 
   return (
     <div>
-      <PatchSysForm
+      <PatchStepForm
         title={props.redirectProps.location.state.title}
         handleChange={handleChange}
         handleSubmit={handleSubmit}
@@ -43,4 +43,4 @@ const PatchSystem = props => {
   )
 }
 
-export default PatchSystem
+export default PatchStep

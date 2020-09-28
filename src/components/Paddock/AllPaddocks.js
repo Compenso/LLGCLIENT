@@ -9,7 +9,7 @@ import { allPaddocks } from '../../api/paddock'
 
 const AllPaddocks = props => {
   const [paddocksArray, setPaddocksArray] = useState([])
-  const [showStep, setShowStep] = useState([])
+  const [showSteps, setShowSteps] = useState([])
   const [patch, setPatch] = useState(false)
 
   useEffect(() => {
@@ -35,13 +35,13 @@ const AllPaddocks = props => {
             <OnePaddock
               key={title._id}
               title={title}
-              showStep={showStep}
-              setShowStep={setShowStep}
+              showSteps={showSteps}
+              setShowSteps={setShowSteps}
             />
           ))}
         </div>
         <div>
-          {showStep.map(title => (
+          {showSteps.map(title => (
             <h2 className='containerStyle2' key={title._id}>{title.title}
               <Button onClick={patchHandler} className='btn' size='sm' variant='dark'>Patch</Button>
               {patch && <Redirect to={{

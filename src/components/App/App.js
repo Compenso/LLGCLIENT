@@ -74,8 +74,8 @@ class App extends Component {
           <AuthenticatedRoute user={user} path='/delete-paddock' render={(padProps) => (
             <DeletePaddock user={user} padProps={padProps} />
           )} />
-          <AuthenticatedRoute user={user} path='/new-step' render={(padsysProps) => (
-            <NewSteps user={user} padsysProps={padsysProps} />
+          <AuthenticatedRoute user={user} path='/new-step' render={(padStepsProps) => (
+            <NewSteps user={user} padsysProps={padStepsProps} />
           )} />
           <AuthenticatedRoute user={user} path='/patch-step' render={(redirectProps) => (
             <PatchStep user={user} redirectProps={redirectProps} />

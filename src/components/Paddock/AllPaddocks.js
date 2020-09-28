@@ -3,7 +3,6 @@ import { withRouter, Redirect } from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
 
 import OnePaddock from './OnePaddock'
-import OneStep from './../Steps/OneStep'
 // bring in our api call for indexing all Paddocks.
 import { allPaddocks } from '../../api/paddock'
 // import { allSteps } from '../../api/system'
@@ -38,14 +37,6 @@ const AllPaddocks = props => {
               title={title}
               showStep={showStep}
               setShowStep={setShowStep}
-            />
-          ))}
-        </div>
-        <div className='containerStyleDiv'>
-          {showStep.map(title => (
-            <OneStep
-              key={title._id}
-              title={title}
             />
           ))}
         </div>

@@ -8,7 +8,7 @@ export const newStep = (padId, title) => {
     method: 'POST',
     data: {
       paddock: {
-        systems: {
+        steps: {
           title: title.title
         }
       }
@@ -16,23 +16,23 @@ export const newStep = (padId, title) => {
   })
 }
 
-export const allSteps = (padId, sysId) => {
+export const allSteps = (padId, stepId) => {
   console.log('All steps request')
-  console.log('padId', padId, sysId)
+  console.log('padId', padId, stepId)
   return axios({
-    url: apiUrl + '/paddocks/' + padId + '/systems/' + sysId,
+    url: apiUrl + '/paddocks/' + padId + '/steps/' + stepId,
     method: 'GET'
   })
 }
 
-export const patchStep = (padId, title, sysId) => {
-  console.log(padId, title, sysId)
+export const patchStep = (padId, title, stepId) => {
+  console.log(padId, title, stepId)
   return axios({
-    url: apiUrl + '/paddocks/' + padId + '/systems/' + sysId,
+    url: apiUrl + '/paddocks/' + padId + '/steps/' + stepId,
     method: 'PATCH',
     data: {
       paddock: {
-        system: {
+        step: {
           title: title
         }
       }

@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom'
 import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
 
-import { allSteps } from './../../api/system'
+import { allSteps } from './../../api/step'
 
 const OnePaddock = (props) => {
   console.log(props.title._id, 'soup')
@@ -33,15 +33,16 @@ const OnePaddock = (props) => {
 
   const showStepsHandler = event => {
     event.preventDefault()
+    console.log(props, 'line 36 step handle.')
     setShowSteps(!showSteps)
-    const padId = props.title._id
-    if (!props.title.systems[0]) {
+    if (!props.title.steps[0]) {
       props.setShowSteps([{ _id: 7, title: 'Nothing Here' }])
       return
     }
-    const sysId = props.title.systems[0]._id
-    allSteps(padId, sysId)
-      .then((res) => props.setShowSteps(res.data.systems))
+    const padId = props.title._id
+    const stepId = props.title.steps[0]._id
+    allSteps(padId, stepId)
+      .then((res) => props.setShowSteps(res.data.steps))
       .catch(() => console.log('all steps failed.'))
   }
 

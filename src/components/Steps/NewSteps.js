@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom'
 
 import NewStepForm from './NewStepForm'
 
-import { newStep } from '../../api/system'
+import { newStep } from '../../api/step'
 
 const Steps = props => {
   const [title, setTitle] = useState({
